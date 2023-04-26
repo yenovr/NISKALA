@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <p id="tugas"></p>
+    <p id="date"></p>
+    <h4>Rumah ke Kampus</h4>
+    <p>
+      Dino menaiki Taxi A untuk pergi ke kampus dengan jarak 8 km dengan tarif
+      perkilo meternya adalah 10000. <br />Sehingga, total tarif yang harus dia
+      bayar adalah <span id="tarifA"></span>
+    </p>
+    <h4>Kampus ke Mall</h4>
+    <p>
+      Dino menaiki Taxi B untuk pergi ke kampus dengan jarak 6 km dengan tarif
+      perkilo meternya adalah 15000. <br />Sehingga, total tarif yang harus dia
+      bayar adalah <span id="tarifB"></span>
+    </p>
+    <script type="text/javascript">
+      // Nomor 1
+      const numb = [45, 76, 12, 33, 76, 23, 11, 10, 38, 97];
+      function pisahkanGenapGanjil(numb) {
+        let angkaGenap = [];
+        let angkaGanjil = [];
+        for (let i = 0; i < numb.length; i++) {
+          if (numb[i] % 2 === 0) {
+            angkaGenap.push(numb[i]);
+          } else {
+            angkaGanjil.push(numb[i]);
+          }
+        }
+        return [angkaGenap, angkaGanjil];
+      }
+      const [angkaGenap, angkaGanjil] = pisahkanGenapGanjil(numb);
+      console.log(
+        `Array ${numb} setelah dilakukan pemisahan menjadi ${angkaGenap} dan ${angkaGanjil}`
+      );
+
+      // Nomor 2
+      const bil = [45, 76, 12, 33, 76, 23, 11, 10, 38, 97];
+      const baru = bil.slice(0, 4);
+      console.log(`4 elemen pertama dari array ${bil} adalah ${baru}`);
+
+      // Nomor 3
+      class Taxi {
+        constructor(tujuan, tarif, jarak) {
+          this.tujuan = tujuan;
+          this.tarif = tarif;
+          this.jarak = jarak;
+        }
+
+        hitungTarif() {
+          let totalTarif = this.tarif * this.jarak;
+          return totalTarif;
+        }
+      }
+
+      // Membuat objek Taxi A
+      const taxiA = new Taxi("kampus", 10000, 8);
+
+      // Membuat objek Taxi B
+      const taxiB = new Taxi("mall", 15000, 6);
+
+      // Menampilkan total tarif yang harus dibayarkan oleh Dino
+      document.getElementById("tarifA").innerHTML = "Rp " + taxiA.hitungTarif();
+      document.getElementById("tarifB").innerHTML = "Rp " + taxiB.hitungTarif();
+
+      // Nomor 4
+      function segitiga(a, t) {
+        const sisiMiring = Math.sqrt(a ** 2 + t ** 2);
+        return sisiMiring;
+      }
+      const alas = 15;
+      const tinggi = 17;
+      const sisiMiring = segitiga(alas, tinggi);
+      const pembulatan = Math.round(sisiMiring);
+      const a = "Dua Puluh Tiga senti meter".toUpperCase();
+      document.write(
+        `Panjang sisi miring segitiga siku-siku dengan alas ${alas}cm dan tinggi ${tinggi}cm adalah ${pembulatan}cm atau ${a}.`
+      );
+
+      // Nomor 5
+      const biodataSaya = [
+        ["Nama", "Rita zubaidah"],
+        ["ttl", "Tanah Laut, 14 Maret 2003"],
+        ["Alamat", "Pelaihari"],
+        ["Umur", "20 Tahun"],
+      ];
+      const biodataTeman = [
+        ["Nama", "Siti Nur Sarah"],
+        ["ttl", "Banjarmasin, 9 Agustus 2004"],
+        ["Alamat", "Banjarmasin"],
+        ["Umur", "18 Tahun"],
+      ];
+      console.log(biodataSaya);
+      console.log(biodataTeman);
+
+      // Mendapatkan tanggal saat ini
+      const now = new Date();
+
+      // Mengubah objek Date menjadi string dan memformatnya
+      const dateString =
+        now.toString().slice(0, 15) +
+        " " +
+        now.toString().slice(16, 24) +
+        " GMT+0800(central indonesia time)";
+
+      // Menampilkan format tanggal pada halaman web
+      document.getElementById("date").innerHTML = dateString;
+
+      // Menampilkan data menggunakan perulangan
+      const data = [biodataSaya, biodataTeman];
+
+      for (let i = 0; i < data.length; i++) {
+        document.write(`Data ${i + 1}:<br>`);
+        for (let j = 0; j < data[i].length; j++) {
+          document.write(`${data[i][j][1]}<br>`);
+        }
+        document.write("<br>");
+      }
+    </script>
+  </body>
+</html>
